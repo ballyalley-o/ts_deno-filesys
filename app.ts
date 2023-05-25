@@ -1,5 +1,9 @@
-let message: string;
+import { Application } from 'https://deno.land/x/oak/mod.ts';
 
-message="Hey sucka!";
+const app = new Application();
 
-console.log(message);
+app.use((ctx) => {
+    ctx.response.body = 'Hello World!';
+});
+
+await app.listen({ port: 8000 })
